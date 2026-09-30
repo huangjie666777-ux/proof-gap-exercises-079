@@ -1,13 +1,1 @@
-# Natural Deduction Practice
-
-React and TypeScript application scaffold.
-
-```sh
-npm install
-npm run dev
-npm run build
-npm test
-```
-
-Node.js 22.19.0, React 19.0.0, TypeScript 5.8.3, Vite 6.2.0.
-The test runner is available; no application tests or proof logic are implemented in the scaffold.
+# 自然演绎证明练习\n\nReact 19 + TypeScript 5.8 实现的自然演绎（Natural Deduction）逐步证明练习网页。\n\n## 运行\n\n    npm install\n    npm run dev      # 启动开发服务器（默认 http://localhost:5173）\n    npm test         # 运行 vitest 单元测试\n    npm run build    # 类型检查并构建到 dist/\n\n## 操作说明\n\n- **选择练习**：顶部下拉框选择内置练习（含嵌套假设、分情况证明等），或展开“自定义题目”输入前提（分号/换行分隔）与目标后点开始。\n- **公式语法**：原子为大写字母串（如 P、ABC）；联结词 ∧ ∨ →（也接受 & | 和 ->）；优先级 ∧ > ∨ > →，→ 右结合，其余左结合；支持圆括号。公式按语法树比较，逻辑等价不算相同。语法错误会定位到字符并保留输入。\n- **编辑证明**：每行可编辑公式、选择规则、填写引用（输入行号；→I / ∨E 的分支槽位输入分支首行行号）。每行右侧按钮可在下方新增推导行、开启假设分支或删除本行；分支可关闭/重新打开。\n- **支持规则**：前提、假设、重申（R）、∧I、∧E、∨I、∨E、→I、→E。引用只能指向先前可见行；已关闭分支内部不能被外部普通步骤引用；→I 引用本层已关闭的直接子分支（首行假设、末行结论）；∨E 引用一个可见析取式和两个已关闭直接子分支（首行分别为两个析取项、末行为同一结论）。\n- **状态反馈**：每行显示 ✓（有效）、✗（错误）或 ⛓（依赖无效）及原因；点击引用旁的 ↗ 定位原行。引用绑定行的稳定身份，删除目标后明确报“已失效”，不会改指其他行；任何编辑都会立即重新校验，旧成功状态立即撤销。\n- **完成判定**：全部步骤合法、所有分支关闭、且顶层最后一行结论与目标按语法树一致时，显示完成横幅（不使用真值表）。\n- **进度保存**：证明状态自动保存到 localStorage，刷新页面后恢复；“重置本题”可清空当前证明。\n\n## 模块结构\n\n- src/logic/formula.ts — 公式解析器（递归下降、错误定位）、语法树相等与格式化。\n- src/logic/proof.ts — 证明结构（行/嵌套分支）、行号计算、可见性与作用域判断。\n- src/logic/check.ts — 逐行规则检查、依赖级联失效、完成判定。\n- src/logic/exercises.ts — 内置练习与规则速查数据。\n- src/components/ProofView.tsx — 缩进框式证明视图与行编辑器。\n- src/App.tsx — 页面组装、状态管理、localStorage 持久化。\n- src/logic/*.test.ts — 解析、作用域、规则检查共 21 个单元测试。

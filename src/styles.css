@@ -1,0 +1,52 @@
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; margin: 0; background: #f4f5f7; color: #222; }
+main { max-width: 1080px; margin: 0 auto; padding: 16px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.05rem; margin: 0 0 8px; }
+.panel { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; }
+button { cursor: pointer; border: 1px solid #bbb; background: #fafafa; border-radius: 4px; padding: 2px 8px; font-size: 0.85rem; }
+button:hover { background: #eee; }
+input, select { font: inherit; padding: 3px 6px; border: 1px solid #bbb; border-radius: 4px; }
+.exercise-bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.desc { color: #555; margin: 6px 0; }
+.custom-setup { margin-top: 8px; }
+.custom-setup input { display: block; width: 100%; margin: 6px 0; }
+.error-text { color: #c0392b; margin-left: 8px; }
+.goal-line { margin: 8px 0 0; }
+.goal-input { min-width: 220px; }
+.hint { color: #666; font-size: 0.85rem; }
+.rules table { border-collapse: collapse; width: 100%; }
+.rules th, .rules td { border: 1px solid #ddd; padding: 4px 8px; text-align: left; font-size: 0.9rem; }
+.complete { background: #e6f7e6; border: 1px solid #3a9d3a; color: #1e6b1e; padding: 10px 16px; border-radius: 8px; margin-bottom: 14px; font-weight: 600; }
+
+.box { border-left: 3px solid #8a8f98; margin: 6px 0 6px 4px; padding-left: 10px; background: #fdfdfd; }
+.box.root { border-left: none; padding-left: 0; background: transparent; }
+.box.closed { background: #f6f6f6; }
+.box-header { display: flex; gap: 8px; align-items: center; padding: 4px 0; border-bottom: 1px dashed #ccc; }
+.box-title { font-size: 0.85rem; color: #555; font-weight: 600; }
+.box-body { padding: 4px 0; }
+.box-footer { padding: 4px 0; display: flex; gap: 6px; }
+.empty { color: #999; font-size: 0.85rem; padding: 4px; }
+
+.line-row { display: flex; align-items: center; gap: 6px; padding: 3px 4px; border-radius: 4px; flex-wrap: wrap; }
+.line-row.status-ok { background: #f0f9f0; }
+.line-row.status-error { background: #fdf0ef; }
+.line-row.status-dep { background: #fdf8e7; }
+.line-row.flash { outline: 2px solid #4a90d9; }
+.lineno { width: 2em; text-align: right; color: #888; font-variant-numeric: tabular-nums; }
+.formula-cell { display: flex; flex-direction: column; }
+.formula-input { min-width: 220px; font-family: "Cambria Math", monospace; }
+.formula-input.parse-error { border-color: #c0392b; }
+.parse-marker { color: #c0392b; font-size: 0.75rem; }
+.rule-select { width: 110px; }
+.refs { display: flex; gap: 4px; }
+.ref-slot { display: inline-flex; align-items: center; gap: 2px; }
+.ref-input { width: 52px; text-align: center; }
+.ref-input.dead { border-color: #c0392b; color: #c0392b; }
+.jump { padding: 0 4px; font-size: 0.8rem; }
+.badge { font-weight: 700; }
+.badge.ok { color: #2e7d32; }
+.badge.error { color: #c0392b; }
+.badge.dep { color: #b8860b; }
+.reason { color: #a33; font-size: 0.8rem; max-width: 320px; }
+.row-actions { display: inline-flex; gap: 4px; margin-left: auto; }
